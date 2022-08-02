@@ -5,16 +5,24 @@ pragma solidity ^0.8.9;
 
 import "hardhat/console.sol";
 
-contract MyContract {
+contract GBAStore {
 
-    int public x;
+    uint public totalDonated;
+    uint public itemsSold;
+
+    //temporary!
+    address public charityAddress;
 
     constructor() {
-        x = 1;
+        totalDonated = 0;
+        itemsSold = 0;
+        charityAddress = 0x071c3C0D9c9f19214c5b48F36f488a23BAb3d000;
     }
 
-    function setX(int _x) public {
-        x = _x;
+    function purchase() public payable {
+        payable(charityAddress).transfer(msg.value);
+        totalDonated += msg.value;
+        itemsSold += 1;
     }
 
 }

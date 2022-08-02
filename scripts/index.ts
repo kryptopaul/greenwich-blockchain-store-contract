@@ -3,16 +3,17 @@ import { ethers } from "hardhat";
 
 
 async function main () {
-    const contractAddress = '0x8Ff01fD0b374d161513B6e4C51af81720d2D4634'
-    const MyContract = await ethers.getContractFactory("MyContract");
-    const myContract = await MyContract.attach(contractAddress);
+    const contractAddress = '0xD0894074b74C58913db4EBc61DB958B96d9ca69F'
+    const GBAStore = await ethers.getContractFactory("GBAStore");
+    const gbaStore = await GBAStore.attach(contractAddress);
 
-    const xValue = await myContract.x();
-    console.log(xValue.toString());
+    console.log(gbaStore.address);
+    await gbaStore.purchase({value: ethers.utils.parseEther('4.20')});
 
-    await myContract.setX(10);
-    const xValue2 = await myContract.x();
-    console.log(xValue2.toString());
+    const itemsSold = await gbaStore.itemsSold();
+    const totalDonated = await ethers.utils.formatUnits(await gbaStore.totalDonated(), "ether");
+
+    console.log(`We've sold ${itemsSold} items and donated ${totalDonated} MATIC!`);
   }
   
 main()
