@@ -7,13 +7,14 @@ async function main () {
     const GBAStore = await ethers.getContractFactory("GBAStore");
     const gbaStore = await GBAStore.attach(contractAddress);
 
-    console.log(gbaStore.address);
+    console.log("The contract is running at: " + gbaStore.address);
+    console.log("Submitting a Purchase request...")
     await gbaStore.purchase({value: ethers.utils.parseEther('4.20')});
 
     const itemsSold = await gbaStore.itemsSold();
     const totalDonated = await ethers.utils.formatUnits(await gbaStore.totalDonated(), "ether");
 
-    console.log(`We've sold ${itemsSold} items and donated ${totalDonated} MATIC!`);
+    console.log(`Success! We've sold ${itemsSold} items and donated ${totalDonated} MATIC!`);
   }
   
 main()

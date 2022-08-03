@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-//List of charities:
+/*
+List of charities:
+1. UkraineDAO - 0x633b7218644b83d57d90e7299039ebab19698e9c
+*/
 
 import "hardhat/console.sol";
 
