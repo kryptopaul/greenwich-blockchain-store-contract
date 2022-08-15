@@ -1,9 +1,11 @@
 import { ethers } from "hardhat";
 
+const percentage = 15;
+
 async function main() {
 
   const GBAStore = await ethers.getContractFactory("GBAStore");
-  const gbaStore = await GBAStore.deploy();
+  const gbaStore = await GBAStore.deploy(percentage);
 
   await gbaStore.deployed();
 
