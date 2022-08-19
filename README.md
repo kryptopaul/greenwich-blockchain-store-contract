@@ -1,4 +1,4 @@
-# GBAStore Contract
+# Greenwich Blockchain Store Contract
 
 This contract shows how blockchain is able to help with transparency in cases where online stores claim they donate x% from each sale.
 
